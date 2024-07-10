@@ -1,5 +1,5 @@
+
 from django.contrib import admin
+from vista_previa.models import Fondo
 
-from vista_previa.models import Producto
-
-admin.site.register(Producto)
+admin.site.register(Fondo)
