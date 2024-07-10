@@ -66,11 +66,7 @@ class cuota(models.Model):
     codigo_interno =models.CharField(max_length=200)
     def __str__(self,):
         return self.nombre
-class benchmark(models.Model):
-    nombre = models.CharField(max_length=200)
-    codigo_interno =models.CharField(max_length=200)
-    def __str__(self,):
-        return self.nombre
+
 class benchmark(models.Model):
     nombre = models.CharField(max_length=200)
     codigo_interno =models.CharField(max_length=200)

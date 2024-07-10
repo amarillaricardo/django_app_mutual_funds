@@ -1,6 +1,21 @@
 
 from django.contrib import admin
-from vista_previa.models import benchmark,cuota,duration,plazo_liquidacion,tipo_de_activo,pais_sede,calificacion,calificadora_de_riesgo,moneda,horizonte,region,tipo_de_inversion,sociedad_depositaria,sociedad_gerente,Fondo
+from vista_previa.models import benchmark
+from vista_previa.models import cuota
+from vista_previa.models import duration
+from vista_previa.models import plazo_liquidacion
+from vista_previa.models import tipo_de_activo
+from vista_previa.models import pais_sede
+from vista_previa.models import calificacion
+from vista_previa.models import calificadora_de_riesgo
+from vista_previa.models import moneda
+from vista_previa.models import horizonte
+from vista_previa.models import region
+from vista_previa.models import tipo_de_inversion
+from vista_previa.models import sociedad_depositaria
+from vista_previa.models import sociedad_gerente
+from vista_previa.models import Fondo
+
 
 admin.site.register(benchmark)
 admin.site.register(cuota)
