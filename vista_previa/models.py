@@ -29,6 +29,63 @@ class horizonte(models.Model):
     codigo_interno =models.CharField(max_length=200)
     def __str__(self,):
         return self.nombre
+    
+class moneda(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+
+class calificacion(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+    
+class calificadora_de_riesgo(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+
+class pais_sede(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+
+class tipo_de_activo(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+
+
+class cuota(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+class benchmark(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+class benchmark(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+class plazo_liquidacion(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+class duration(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
 
 class Fondo(models.Model):
     nombre = models.CharField(max_length=200)
@@ -39,12 +96,12 @@ class Fondo(models.Model):
     sociedad_gerente = models.ForeignKey(sociedad_gerente, on_delete=models.CASCADE)
     sociedad_depositária = models.ForeignKey(sociedad_depositaria, on_delete=models.CASCADE)
     region = models.ForeignKey(region, on_delete=models.CASCADE) 
-    cotizado_originalmente = models.CharField(max_length=200)	 
-    calificacion = models.CharField(max_length=200) 
-    fecha_de_calificacion = models.DateTimeField('Fecha de Calificacion')	 
-    calificadora_de_riesgo = models.CharField(max_length=200)	 
-    pais_sede = models.CharField(max_length=200) 
-    tipo_de_activo = models.CharField(max_length=200)
+    cotizado_originalmente = models.ForeignKey(moneda, on_delete=models.CASCADE) 
+    calificacion = models.ForeignKey(calificacion, on_delete=models.CASCADE) 
+    fecha_de_calificacion = models.DateField('Fecha de Calificacion')	 
+    calificadora_de_riesgo = models.ForeignKey(calificadora_de_riesgo, on_delete=models.CASCADE) 	 
+    pais_sede = models.ForeignKey(pais_sede, on_delete=models.CASCADE)
+    tipo_de_activo = models.ForeignKey(tipo_de_activo, on_delete=models.CASCADE)
     estado = models.CharField(max_length=200)
     bolsa = models.CharField(max_length=200)
     codigo_cafci = models.CharField(max_length=200)
@@ -56,11 +113,11 @@ class Fondo(models.Model):
     gastos_ordinarios_de_gestión = models.CharField(max_length=200) 
     cobra_comision_por_perfomance = models.CharField(max_length=200)
     inversion_minima = models.CharField(max_length=200) 
-    plazo_de_liquidacion = models.CharField(max_length=200)
-    benchmark = models.CharField(max_length=200)	 
-    duration = models.CharField(max_length=200)
-    cuota_general = models.CharField(max_length=200)	 
-    fecha_inicio_del_fondo = models.DateTimeField('Fecha de inicio del Fondo')
+    plazo_de_liquidacion = models.ForeignKey(plazo_liquidacion, on_delete=models.CASCADE)
+    benchmark = models.ForeignKey(benchmark, on_delete=models.CASCADE) 
+    duration = models.ForeignKey(duration, on_delete=models.CASCADE)
+    cuota_general = models.ForeignKey(cuota, on_delete=models.CASCADE)	 
+    fecha_inicio_del_fondo = models.DateField('Fecha de inicio del Fondo')
     fecha_publicacion = models.DateTimeField('Fecha de publicación')
 
 
