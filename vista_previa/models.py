@@ -1,12 +1,14 @@
 from django.db import models
 
 class Fondo(models.Model):
-    nombre = models.CharField(max_length=200)	 
-    tipo_de_inversión = models.CharField(max_length=200) 
-    horizonte = models.CharField(max_length=200) 
-    sociedad_gerente = models.CharField(max_length=200)	 
-    sociedad_depositária = models.CharField(max_length=200) 
-    region = models.CharField(max_length=200)	 
+    nombre = models.CharField(max_length=200)
+    clase =	models.CharField(blank=True,max_length=200,default="")
+    codigo_economatica = models.CharField(blank=True,max_length=200,default="") 
+    tipo_de_inversión = models.ForeignKey(tipo_de_inversion, on_delete=models.CASCADE)
+    horizonte = models.ForeignKey(horizonte, on_delete=models.CASCADE)
+    sociedad_gerente = models.ForeignKey(sociedad_gerente, on_delete=models.CASCADE)
+    sociedad_depositária = models.ForeignKey(sociedad_depositaria, on_delete=models.CASCADE)
+    region = models.ForeignKey(region, on_delete=models.CASCADE) 
     cotizado_originalmente = models.CharField(max_length=200)	 
     calificacion = models.CharField(max_length=200) 
     fecha_de_calificacion = models.DateTimeField('Fecha de Calificacion')	 
@@ -31,8 +33,9 @@ class Fondo(models.Model):
     fecha_inicio_del_fondo = models.DateTimeField('Fecha de inicio del Fondo')
     fecha_publicacion = models.DateTimeField('Fecha de publicación')
 
+
     def __str__(self,):
-        return self.nombre + '[' + self.codigo_cafci + ']'
+        return self.nombre + ' [' + self.codigo_cafci + ']'
     
 
-    
+
