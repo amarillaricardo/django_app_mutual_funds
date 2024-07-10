@@ -1,8 +1,8 @@
 
 from django.contrib import admin
-from vista_previa.models import region,tipo_de_inversion,sociedad_depositaria,sociedad_gerente,Fondo
+from vista_previa.models import horizonte,region,tipo_de_inversion,sociedad_depositaria,sociedad_gerente,Fondo
 
-
+admin.site.register(horizonte)
 admin.site.register(region)
 admin.site.register(tipo_de_inversion)
 admin.site.register(sociedad_depositaria)

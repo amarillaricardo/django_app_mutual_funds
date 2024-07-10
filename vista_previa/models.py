@@ -1,5 +1,35 @@
 from django.db import models
 
+
+class sociedad_gerente(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return '%s'% self.nombre
+class sociedad_depositaria(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return '%s'% self.nombre
+
+class tipo_de_inversion(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return '%s'% self.nombre
+
+class region(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+
+class horizonte(models.Model):
+    nombre = models.CharField(max_length=200)
+    codigo_interno =models.CharField(max_length=200)
+    def __str__(self,):
+        return self.nombre
+
 class Fondo(models.Model):
     nombre = models.CharField(max_length=200)
     clase =	models.CharField(blank=True,max_length=200,default="")
