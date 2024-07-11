@@ -136,7 +136,7 @@ class Fondo(models.Model):
             return format_html('<span style="color: #f00;">{}</span>',self.estado,)
 
     def __str__(self,):
-        return self.nombre + ' [' + self.codigo_cafci + ']'
+        return self.codigo_cafci
     
 
 

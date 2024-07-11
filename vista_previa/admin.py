@@ -15,6 +15,8 @@ from vista_previa.models import tipo_de_inversion
 from vista_previa.models import sociedad_depositaria
 from vista_previa.models import sociedad_gerente
 from vista_previa.models import Fondo
+from usuarios.models import Datosusuarios
+
 
 class FondoInline(admin.TabularInline):
     model = Fondo
@@ -67,7 +69,7 @@ class FondoAdmin(admin.ModelAdmin):
         return '%s - Clase %s' % (obj.nombre,obj.clase)
 
 
-
+admin.site.register(Datosusuarios)
 admin.site.register(benchmark)
 admin.site.register(cuota)
 admin.site.register(duration)

@@ -36,7 +36,8 @@ INSTALLED_APPS = [
 
 
 #apps por defectos
-
+    'django.contrib.sites',
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,7 +52,8 @@ INSTALLED_APPS = [
 #apps propias
 
      'vista_previa.apps.VistaPreviaConfig',
-
+     'usuarios.apps.UsuariosConfig',
+     'cuotapartes.apps.CuotapartesConfig',
 
 
 ]
@@ -143,3 +145,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/vista_previa'
+LOGIN_URL = 'django.contrib.auth.views.login'
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+SITE_ID = 1
