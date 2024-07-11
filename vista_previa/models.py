@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.html import format_html
 
 class sociedad_gerente(models.Model):
     nombre = models.CharField(max_length=200)
@@ -84,6 +84,19 @@ class duration(models.Model):
         return self.nombre
 
 class Fondo(models.Model):
+
+    distintos_estados = (
+        ("Activo","Activo"),
+        ("Cancelado","Cancelado")
+    )
+
+    distintas_bolsas = (
+        ("NA","ArgNA"),
+        ("NA2","ArgNA2"),
+        ("B","BYMA"),
+        ("RM","Rofex-Matba"),
+        ("MV","MAV")
+    )
     nombre = models.CharField(max_length=200)
     clase =	models.CharField(blank=True,max_length=200,default="")
     codigo_economatica = models.CharField(blank=True,max_length=200,default="") 
@@ -98,8 +111,8 @@ class Fondo(models.Model):
     calificadora_de_riesgo = models.ForeignKey(calificadora_de_riesgo, on_delete=models.CASCADE) 	 
     pais_sede = models.ForeignKey(pais_sede, on_delete=models.CASCADE)
     tipo_de_activo = models.ForeignKey(tipo_de_activo, on_delete=models.CASCADE)
-    estado = models.CharField(max_length=200)
-    bolsa = models.CharField(max_length=200)
+    estado = models.CharField(max_length=200,choices=distintos_estados,default="Activo")
+    bolsa = models.CharField(max_length=200,choices=distintas_bolsas,default="ArgNA")
     codigo_cafci = models.CharField(max_length=200)
     comision_de_ingreso = models.CharField(max_length=200)
     honorarios_de_administración = models.CharField(max_length=200)
@@ -116,6 +129,11 @@ class Fondo(models.Model):
     fecha_inicio_del_fondo = models.DateField('Fecha de inicio del Fondo')
     fecha_publicacion = models.DateTimeField('Fecha de publicación')
 
+    def tipo_de_estado(self):
+        if self.estado == 'Activo':
+            return format_html('<span style="color: #099;">{}</span>',self.estado,)
+        elif self.estado == 'Cancelado':
+            return format_html('<span style="color: #f00;">{}</span>',self.estado,)
 
     def __str__(self,):
         return self.nombre + ' [' + self.codigo_cafci + ']'

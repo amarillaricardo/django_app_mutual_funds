@@ -50,7 +50,7 @@ INSTALLED_APPS = [
 
 #apps propias
 
-     'vista_previa',
+     'vista_previa.apps.VistaPreviaConfig',
 
 
 
