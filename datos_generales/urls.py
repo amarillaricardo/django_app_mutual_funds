@@ -1,6 +1,6 @@
 
 from django.urls import path
-from vista_previa import views
+from datos_generales import views
 
 
 

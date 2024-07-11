@@ -1,5 +1,5 @@
 from django.db import models
-from vista_previa.models import Fondo
+from datos_generales.models import Fondo
 
 class cotizaciones(models.Model):
     monedas = (
@@ -16,5 +16,5 @@ class cotizaciones(models.Model):
     moneda = models.CharField(max_length=200,choices=monedas,default='ARS')
 
     class Meta:
-        db_table = 'cotizacion_vcp'
+        db_table = 'vcp'
 

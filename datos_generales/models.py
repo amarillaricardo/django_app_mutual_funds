@@ -139,4 +139,3 @@ class Fondo(models.Model):
         return self.codigo_cafci
     
 
-

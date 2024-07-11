@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import vista_previa
+import datos_generales
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -51,9 +51,10 @@ INSTALLED_APPS = [
 
 #apps propias
 
-     'vista_previa.apps.VistaPreviaConfig',
+     
      'usuarios.apps.UsuariosConfig',
      'cuotapartes.apps.CuotapartesConfig',
+     'datos_generales.apps.DatosGeneralesConfig',
 
 
 ]
@@ -146,7 +147,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/vista_previa'
+LOGIN_REDIRECT_URL = '/datos_generales'
 LOGIN_URL = 'django.contrib.auth.views.login'
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True

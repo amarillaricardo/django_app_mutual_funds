@@ -1,22 +1,21 @@
-
 from django.contrib import admin
-from vista_previa.models import benchmark
-from vista_previa.models import cuota
-from vista_previa.models import duration
-from vista_previa.models import plazo_liquidacion
-from vista_previa.models import tipo_de_activo
-from vista_previa.models import pais_sede
-from vista_previa.models import calificacion
-from vista_previa.models import calificadora_de_riesgo
-from vista_previa.models import moneda
-from vista_previa.models import horizonte
-from vista_previa.models import region
-from vista_previa.models import tipo_de_inversion
-from vista_previa.models import sociedad_depositaria
-from vista_previa.models import sociedad_gerente
-from vista_previa.models import Fondo
-from usuarios.models import Datosusuarios
+from datos_generales.models import benchmark
+from datos_generales.models import cuota
+from datos_generales.models import duration
+from datos_generales.models import plazo_liquidacion
+from datos_generales.models import tipo_de_activo
+from datos_generales.models import pais_sede
+from datos_generales.models import calificacion
+from datos_generales.models import calificadora_de_riesgo
+from datos_generales.models import moneda
+from datos_generales.models import horizonte
+from datos_generales.models import region
+from datos_generales.models import tipo_de_inversion
+from datos_generales.models import sociedad_depositaria
+from datos_generales.models import sociedad_gerente
+from datos_generales.models import Fondo
 
+ 
 
 class FondoInline(admin.TabularInline):
     model = Fondo
@@ -69,7 +68,7 @@ class FondoAdmin(admin.ModelAdmin):
         return '%s - Clase %s' % (obj.nombre,obj.clase)
 
 
-admin.site.register(Datosusuarios)
+
 admin.site.register(benchmark)
 admin.site.register(cuota)
 admin.site.register(duration)
