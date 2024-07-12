@@ -25,24 +25,26 @@ const initDataTable = async () => {
 
 const listCotizaciones = async () => {
     try {
-        const response = await fetch('http://127.0.0.1:8000/cuotapartes/list_cotizaciones');
+        const response = await fetch('http://127.0.0.1:8000/cuotapartes/list_cotizaciones/');
         const data = await response.json();
         
         let content = ``;
-        data.cotizaciones_vcps.forEach((cotizaciones_vcp, index) => {
+
+        data.cotizaciones_de_vcp.forEach((cotizaciones_de_vcp, index) => {
             content += `
                 <tr>
                     <td>${index}</td>
-                    <td>${cotizaciones_vcp.fondo_id_id}</td>
-                    <td>${cotizaciones_vcp.fecha_cotizacion}</td>
-                    <td>${cotizaciones_vcp.cuota}</td>
-                    <td>${cotizaciones_vcp.patrimonio}</td>
-                    <td>${cotizaciones_vcp.market_share}</td>
-                    <td>${cotizaciones_vcp.cantidad_de_cuotas}</td>
-                    <td>${cotizaciones_vcp.moneda}</td>
+                    <td>${cotizaciones_de_vcp.fondo_id_id}</td>
+                    <td>${cotizaciones_de_vcp.fecha_cotizacion}</td>
+                    <td>${cotizaciones_de_vcp.cuota}</td>
+                    <td>${cotizaciones_de_vcp.patrimonio}</td>
+                    <td>${cotizaciones_de_vcp.market_share}</td>
+                    <td>${cotizaciones_de_vcp.cantidad_de_cuotas}</td>
+                    <td>${cotizaciones_de_vcp.moneda}</td>
                 </tr>`;
         });
         tableBody_cotizaciones_vcp.innerHTML = content;
+        
         
     } catch (ex) {
         alert(ex);
