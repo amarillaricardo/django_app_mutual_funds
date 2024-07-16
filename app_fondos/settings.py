@@ -152,3 +152,16 @@ LOGIN_URL = 'django.contrib.auth.views.login'
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 SITE_ID = 1
+
+# LOGGING
+LOG_DIR = os.path.join(BASE_DIR, 'log')
+LOG_FILE = '/api.log'
+LOG_PATH = LOG_DIR + LOG_FILE
+
+if not os.path.exists(LOG_DIR):
+    os.mkdir(LOG_DIR)
+
+if not os.path.exists(LOG_PATH):
+    f = open(LOG_PATH, 'a').close() #create empty log file
+else:
+    f = open(LOG_PATH,"w").close() #clear log file
