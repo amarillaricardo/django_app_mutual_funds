@@ -29,9 +29,6 @@ jobs:
     # This allows us to install pre-commit
       run: git config --global --add safe.directory '*'
 
-    - name: Install
-      run: make install && make install-pre-commit
-
     - name: Lint
       run: make lint
     - name: Install Dependencies
