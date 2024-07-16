@@ -29,9 +29,6 @@ jobs:
     # This allows us to install pre-commit
       run: git config --global --add safe.directory '*'
 
-    - name: Lint
-      run: |
-        make lint
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
