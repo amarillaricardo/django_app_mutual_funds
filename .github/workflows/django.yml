@@ -27,7 +27,7 @@ jobs:
         
     - name: Run Tests'
       env:
-        SECRET_KEY: 69tgugtg%^fgJO&*&
+        SECRET_KEY: django-insecure-_yi3(u!g-9at5(2tjb3ryib+eh_u7m!@-r7gpl&xsyxd_5+8ba
         DB_NAME: mydb
         DB_USER: userdb
         DB_PASSWORD: password
